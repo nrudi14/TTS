@@ -1,0 +1,18 @@
+<center><h1>About the Owner</h1><center>
+	
+<p>Rudi's Page <%= @Home.name %></p>
+
+
+<p>Today is <%= Date.today %>.  It's been a terrible morning! I couldn't fall asleep last night so I'm in a coma today. It's one of my closest friend's birthday's and I'll probably forget to call her.</p>
+
+<p>Tomorrow is <%= Date.today + 1 %>. See you then!</p>
+
+<% t = Time.new %>
+
+<p>It is <% t.strftime("%I:%M%p") %>.</p>
+
+<p>My birthday is <%= @Home.birthdate %></p>
+
+<h2><%= @message %></h2>
+
+</body>

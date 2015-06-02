@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  band: MyString
+  title: MyText
+  year: 2015-05-06
+  bought: false
+
+two:
+  band: MyString
+  title: MyText
+  year: 2015-05-06
+  bought: false

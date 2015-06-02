@@ -1,0 +1,24 @@
+<h1>Cities I've Visited</h1>
+
+  <div class="row">
+    <% @cities.each do |city| %>
+      <div class="col-md-4">
+       <div class="panel panel-default">
+        <div class="panel-body">
+         <h2><%= city.name %></h2>
+         <h3><%= city.country_id %></h3>
+         <h4><%= link_to 'Show', city %></h4>
+         <div class="btn-group">
+          <%= link_to 'Edit', edit_city_path(city), class: "btn btn-default" %>
+          <%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+         </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'New City', new_city_path, class: "btn btn-primary" %>
+
+
+

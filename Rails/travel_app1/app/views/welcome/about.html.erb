@@ -1,0 +1,20 @@
+<style>
+  body {
+    background: <%= @color %>;
+  }
+</style>
+
+<h1>This page is all about me</h1>
+	<p>There is lots of interesting stuff.</p>
+	<p>My favorite color is <%= @color %></p>
+<% if @size > 12 %>
+	<p>My  shoe size is <%= @size %>. I have HUGE feet!</p>
+<% else %>
+	<p>My shoe size is <%= @size %>.<p>
+<% end %>
+
+<%= link_to "Blue", {controller: "welcome", action: "about", color: "blue"}, class: "btn btn-primary" %>
+
+<%= link_to "Red", {controller: "welcome", action: "about", color: "red"}, class: "btn btn-success", id: "whatever" %>
+
+

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Band:</strong>
+  <%= @record.band %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @record.title %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @record.year %>
+</p>
+
+<p>
+  <strong>Bought:</strong>
+  <%= @record.bought %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>

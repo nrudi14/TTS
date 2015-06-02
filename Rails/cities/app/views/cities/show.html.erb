@@ -1,0 +1,7 @@
+<h1><%= @city.name %>, <%= @city.country_id %></h1>
+
+<div class="btn-group">
+  <%= link_to 'Edit', edit_city_path(@city), class: "btn btn-default" %> 
+  <%= link_to 'Back', cities_path, class: "btn btn-default" %>
+</div>
+

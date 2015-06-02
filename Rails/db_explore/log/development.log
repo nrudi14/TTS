@@ -1,0 +1,215 @@
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20150513121556)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "age" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150513121556"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2015-05-13 08:18:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 77ms (Views: 54.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2015-05-13 08:19:04 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 1833ms (Views: 1830.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.self-6fe293c1788c5729528eb492322f08e77a5e16332b3b2479d5dd0ca8597450df.css?body=1" for ::1 at 2015-05-13 08:19:06 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-13 08:19:06 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-13 08:19:06 -0400
+
+
+Started GET "/users/new" for ::1 at 2015-05-13 08:19:09 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (87.3ms)
+  Rendered users/new.html.erb within layouts/application (107.3ms)
+Completed 200 OK in 153ms (Views: 142.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2015-05-13 08:19:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fQfsDqlXRMVOGOIEPfbdsV3imyEO9LKyw+6ks18/yQJD7OBS+GN72xOdzSYSqh/e5E2beFKBE9MfOEVhT0mOcQ==", "user"=>{"name"=>"Becky", "location"=>"Avalon", "age"=>"37"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "location", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Becky"], ["location", "Avalon"], ["age", 37], ["created_at", "2015-05-13 12:19:26.121929"], ["updated_at", "2015-05-13 12:19:26.121929"]]
+  [1m[36m (6.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 14ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/users/1" for ::1 at 2015-05-13 08:19:26 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 80ms (Views: 46.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for ::1 at 2015-05-13 08:19:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 49ms (Views: 48.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2015-05-13 08:19:30 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.8ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 60ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-13 08:19:52 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aopyjnmY1wDPbqsTzCLU/P79tPS1uTQ89cCUD39rIrpUYX7SKKzoHpLrhDHjfhaTR1K0renMlV0pFnXdbx1lyQ==", "user"=>{"name"=>"Franca", "location"=>"Melborne", "age"=>"24"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "location", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Franca"], ["location", "Melborne"], ["age", 24], ["created_at", "2015-05-13 12:19:52.962276"], ["updated_at", "2015-05-13 12:19:52.962276"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2" for ::1 at 2015-05-13 08:19:52 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 44ms (Views: 43.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for ::1 at 2015-05-13 08:19:55 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 39ms (Views: 38.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2015-05-13 08:19:56 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-13 08:20:07 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t0K9F4H/9J7i7JSCfFqwT1GN2fUIqm1JdllogpMT2uiJqbFL0MvLgL9pu6BTBnIg6CLZrFTfzCiqj4lQg2Wdmw==", "user"=>{"name"=>"Lisa", "location"=>"London", "age"=>"37"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "location", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Lisa"], ["location", "London"], ["age", 37], ["created_at", "2015-05-13 12:20:07.441391"], ["updated_at", "2015-05-13 12:20:07.441391"]]
+  [1m[36m (275.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 281ms (ActiveRecord: 276.0ms)
+
+
+Started GET "/users/3" for ::1 at 2015-05-13 08:20:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for ::1 at 2015-05-13 08:20:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2015-05-13 08:20:14 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-13 08:21:31 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0XpWuaCOZqba0A2rEppjCiR7F5K0hCxfdWnD4EsbsrzvkVrl8bpZuIdVIok9xqFlndQXy+jxjT6pvyIyW231zw==", "user"=>{"name"=>"Marco", "location"=>"Santiago", "age"=>"39"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "location", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Marco"], ["location", "Santiago"], ["age", 39], ["created_at", "2015-05-13 12:21:31.897755"], ["updated_at", "2015-05-13 12:21:31.897755"]]
+  [1m[35m (19.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 23ms (ActiveRecord: 20.3ms)
+
+
+Started GET "/users/4" for ::1 at 2015-05-13 08:21:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 32.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for ::1 at 2015-05-13 08:21:34 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2015-05-13 08:21:45 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-13 08:22:27 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iIrOKP94gltxNo9Ki2efvHNu8zG/z7xGlciSlR4Bz822YcJ0rky9RSyzoGikO13TysHzaOO6HSdJHnNHDneIvg==", "user"=>{"name"=>"Nicoletta", "location"=>"Vasto", "age"=>"26"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "location", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nicoletta"], ["location", "Vasto"], ["age", 26], ["created_at", "2015-05-13 12:22:27.804634"], ["updated_at", "2015-05-13 12:22:27.804634"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 5ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/users/5" for ::1 at 2015-05-13 08:22:27 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for ::1 at 2015-05-13 08:22:29 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."location" = ? LIMIT 1  [["location", "Melborne"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Sam"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "location" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["location", "Chicago"], ["updated_at", "2015-05-13 13:14:45.949135"], ["id", 3]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "location", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Abdul"], ["location", "Camelland"], ["age", 23], ["created_at", "2015-05-13 13:17:01.304508"], ["updated_at", "2015-05-13 13:17:01.304508"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" = ?  [["name", "Abdul"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 8]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[35mSQL (1.9ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 3]]

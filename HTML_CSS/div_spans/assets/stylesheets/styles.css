@@ -1,0 +1,29 @@
+#content {
+  width: 600px;
+  background: #fff;
+  border: 2px solid fuchsia;
+  padding: 20px; /* Adds 20px of space to all sides */
+  margin: 20px auto;  /* Adds 20px to the top & bottom & centers left/right */
+}
+
+#footer {
+	height: 20px;
+	width: 600px;
+	margin: auto;
+	background: #336699;
+	border: 10px solid yellow;
+	padding: 20px;
+	font-size: 12px;
+	font-color: white;
+}
+
+
+body {background-image: url(../images/avalon1.jpg);
+}
+
+img{
+  width: 100px;
+  float: left;
+  margin-right: 10px;
+}
+

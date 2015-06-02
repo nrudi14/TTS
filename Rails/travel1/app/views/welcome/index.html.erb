@@ -1,0 +1,23 @@
+<h1>Time to travel the World!</h1>
+<p>This is the best travel site ever!</p>
+
+<p/>One of my favorite places to visit is: <%= @homeland %><p/>
+
+<div id="map-canvas">
+</div>
+
+<%= image_tag "capri.jpg", alt: "capri",
+                          id: "Italy",
+                          class: "country" %>
+
+
+<h2>I'd like to visit:</h2>
+<ul>
+	<% @countries.each do |country| %>
+ 		 <li><%= country %></li>
+	<% end %>
+</ul>
+
+<% @travel_pics.each do |pic| %>
+ <p><%= image_tag pic, class: "img-responsive" %></p>
+<% end %>

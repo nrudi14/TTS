@@ -1,0 +1,11 @@
+<style>
+  body {
+    background: <%= @color %>;
+  }
+</style>
+
+<h1>This page is about me</h1>
+<p>There is lots of interesting stuff.</p>
+
+
+<%= link_to "Blue", {controller: "to_dos", action: "about", color: "blue"}, class: "btn btn-primary" %>

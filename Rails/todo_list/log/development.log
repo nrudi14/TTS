@@ -1,0 +1,1521 @@
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateTasks (20150528123900)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "deadline" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150528123900"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2015-05-28 08:45:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 77ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 08:46:03 -0400
+Processing by TasksController#new as HTML
+  Rendered tasks/_form.html.erb (57.0ms)
+  Rendered tasks/new.html.erb within layouts/application (88.7ms)
+Completed 200 OK in 1825ms (Views: 1817.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 08:46:05 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 08:46:05 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 08:46:05 -0400
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 08:47:09 -0400
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8euFZUE+vPsGsddnyOkgozMx6Uz1lWTFUPCgJK7+4DwDKNXK8wTCqf+ZYoOl0tVIf1rjWnN9QKkZtYigaphMpQ==", "task"=>{"description"=>"Hoby community service presentation", "deadline(1i)"=>"2015", "deadline(2i)"=>"5", "deadline(3i)"=>"29", "deadline(4i)"=>"19", "deadline(5i)"=>"00"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("description", "deadline", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Hoby community service presentation"], ["deadline", "2015-05-29 19:00:00.000000"], ["created_at", "2015-05-28 12:47:09.904970"], ["updated_at", "2015-05-28 12:47:09.904970"]]
+  [1m[35m (10.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/tasks/1
+Completed 302 Found in 22ms (ActiveRecord: 11.4ms)
+
+
+Started GET "/tasks/1" for ::1 at 2015-05-28 08:47:09 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered tasks/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 106ms (Views: 51.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks/1" for ::1 at 2015-05-28 08:50:51 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered tasks/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 08:50:51 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 08:50:51 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 08:50:51 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 08:50:51 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 08:50:51 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 08:50:51 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 08:50:51 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 08:50:51 -0400
+
+
+Started GET "/tasks/1" for ::1 at 2015-05-28 08:51:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered tasks/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 300ms (Views: 258.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 08:51:12 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 08:51:12 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 08:51:12 -0400
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 08:51:12 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 08:51:12 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 08:51:12 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 08:51:12 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 08:51:12 -0400
+
+
+Started GET "/tasks/1/edit" for ::1 at 2015-05-28 08:51:36 -0400
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered tasks/_form.html.erb (39.0ms)
+  Rendered tasks/edit.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 97ms (Views: 96.2ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/tasks/1" for ::1 at 2015-05-28 08:51:42 -0400
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U63mkut2TMAOZD/LhaqzWnXIgtEI679rhpDFAufgK4mhbrY9WUwykvdMii/okUaxOaOIx44DmwfP1e2GI4aHEA==", "task"=>{"description"=>"Hoby community service presentation", "deadline(1i)"=>"2015", "deadline(2i)"=>"5", "deadline(3i)"=>"29", "deadline(4i)"=>"19", "deadline(5i)"=>"00"}, "commit"=>"Update Task", "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "deadline" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["deadline", "2015-05-29 23:00:00.000000"], ["updated_at", "2015-05-28 12:51:42.936894"], ["id", 1]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/tasks/1
+Completed 302 Found in 9ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/tasks/1" for ::1 at 2015-05-28 08:51:42 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered tasks/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 51ms (Views: 48.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks/1" for ::1 at 2015-05-28 09:18:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.3ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered tasks/show.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 455ms (Views: 385.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 09:18:35 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 09:18:35 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 09:18:35 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 09:18:35 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 09:18:35 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 09:18:35 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 09:18:35 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 09:18:35 -0400
+
+
+Started GET "/" for ::1 at 2015-05-28 09:18:55 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.0ms)
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 09:19:03 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (0.7ms)
+  Rendered tasks/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 66ms (Views: 64.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 09:28:23 -0400
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (0.3ms)
+  Rendered tasks/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 65ms (Views: 63.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 09:28:23 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 09:28:23 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 09:28:23 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 09:28:23 -0400
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 09:28:23 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 09:28:23 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 09:28:23 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 09:28:23 -0400
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 09:28:58 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (191.3ms)
+  Rendered tasks/new.js.erb (230.8ms)
+Completed 200 OK in 324ms (Views: 323.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 09:42:16 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (1.1ms)
+  Rendered tasks/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 51ms (Views: 46.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 09:42:16 -0400
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 09:42:16 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 09:42:16 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 09:42:16 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 09:42:16 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 09:42:16 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 09:42:16 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 09:42:17 -0400
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 09:42:23 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (48.4ms)
+  Rendered tasks/new.js.erb (74.4ms)
+Completed 200 OK in 106ms (Views: 105.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 09:44:46 -0400
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (0.5ms)
+  Rendered tasks/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 62ms (Views: 59.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 09:44:46 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 09:44:46 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 09:44:46 -0400
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 09:44:46 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 09:44:46 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 09:44:46 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 09:44:46 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 09:44:46 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 09:46:54 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (0.6ms)
+  Rendered tasks/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 09:46:54 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 09:46:54 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 09:46:54 -0400
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 09:46:54 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 09:46:54 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 09:46:54 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 09:46:54 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 09:46:54 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 09:48:41 -0400
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.0ms)
+  Rendered tasks/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 49ms (Views: 48.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 09:48:41 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 09:48:41 -0400
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 09:48:41 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 09:48:41 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 09:48:41 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 09:48:41 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 09:48:41 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 09:48:41 -0400
+
+
+Started GET "/tasks/1/edit" for ::1 at 2015-05-28 09:49:23 -0400
+Processing by TasksController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered tasks/_form.html.erb (35.9ms)
+  Rendered tasks/edit.js.erb (60.0ms)
+Completed 200 OK in 92ms (Views: 90.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/tasks/1" for ::1 at 2015-05-28 09:52:21 -0400
+Processing by TasksController#update as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"Hoby community service presentation", "deadline(1i)"=>"2015", "deadline(2i)"=>"5", "deadline(3i)"=>"29", "deadline(4i)"=>"18", "deadline(5i)"=>"00"}, "commit"=>"Update Task", "id"=>"1"}
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "tasks" SET "deadline" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["deadline", "2015-05-29 22:00:00.000000"], ["updated_at", "2015-05-28 13:52:21.213772"], ["id", 1]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (1.2ms)
+  Rendered tasks/update.js.erb (24.9ms)
+Completed 200 OK in 61ms (Views: 54.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 10:02:59 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (57.7ms)
+  Rendered tasks/new.js.erb (82.4ms)
+Completed 200 OK in 160ms (Views: 159.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 10:03:03 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"jhfjgfygiu", "deadline(1i)"=>"2015", "deadline(2i)"=>"5", "deadline(3i)"=>"29", "deadline(4i)"=>"10", "deadline(5i)"=>"02"}, "commit"=>"Create Task"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("description", "deadline", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["description", "jhfjgfygiu"], ["deadline", "2015-05-29 14:02:00.000000"], ["created_at", "2015-05-28 14:03:03.981454"], ["updated_at", "2015-05-28 14:03:03.981454"]]
+  [1m[36m (5.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (1.0ms)
+  Rendered tasks/create.js.erb (24.5ms)
+Completed 200 OK in 65ms (Views: 55.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:03:50 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (1.5ms)
+  Rendered tasks/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 42ms (Views: 41.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 10:03:50 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:03:50 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:03:50 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:03:50 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 10:03:50 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:03:50 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:03:50 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 10:03:50 -0400
+
+
+Started GET "/tasks/2/edit" for ::1 at 2015-05-28 10:04:10 -0400
+Processing by TasksController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/_form.html.erb (45.2ms)
+  Rendered tasks/edit.js.erb (70.5ms)
+Completed 200 OK in 104ms (Views: 102.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/tasks/2" for ::1 at 2015-05-28 10:04:38 -0400
+Processing by TasksController#update as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"Resume workshop", "deadline(1i)"=>"2015", "deadline(2i)"=>"5", "deadline(3i)"=>"28", "deadline(4i)"=>"18", "deadline(5i)"=>"30"}, "commit"=>"Update Task", "id"=>"2"}
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "tasks" SET "description" = ?, "deadline" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["description", "Resume workshop"], ["deadline", "2015-05-28 22:30:00.000000"], ["updated_at", "2015-05-28 14:04:38.951177"], ["id", 2]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (1.3ms)
+  Rendered tasks/update.js.erb (25.2ms)
+Completed 200 OK in 61ms (Views: 56.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:10:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.5ms)
+  Rendered tasks/index.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 773ms (Views: 736.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/scaffolds.self-3248d7921e712c25fdff778778714d13a277197a639b21589d5b6e41876fe54e.css?body=1" for ::1 at 2015-05-28 10:10:14 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:10:14 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-28 10:10:14 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:10:14 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:10:14 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-28 10:10:14 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:10:14 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:10:14 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:15:02 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (1.5ms)
+  Rendered tasks/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 3793ms (Views: 3791.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/application.self-dfd9066f337e2648de9f9b1caad49df8d81db3a91b6d61741a93220a80890aac.css?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/scaffolds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:15:06 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:17:14 -0400
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (0.8ms)
+  Rendered tasks/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 130ms (Views: 128.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/scaffolds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/application.self-dfd9066f337e2648de9f9b1caad49df8d81db3a91b6d61741a93220a80890aac.css?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 10:17:14 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 10:17:15 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 10:17:15 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 10:17:15 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:17:15 -0400
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-05-28 10:17:15 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:22:23 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.5ms)
+  Rendered tasks/index.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 3100ms (Views: 3073.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/scaffolds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/application.self-dfd9066f337e2648de9f9b1caad49df8d81db3a91b6d61741a93220a80890aac.css?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-05-28 10:22:27 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:22:31 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (1.0ms)
+  Rendered tasks/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 144ms (Views: 142.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-dfd9066f337e2648de9f9b1caad49df8d81db3a91b6d61741a93220a80890aac.css?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/tasks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/scaffolds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-05-28 10:22:31 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:28:07 -0400
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (1.1ms)
+  Rendered tasks/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 2433ms (Views: 2432.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 10:28:12 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (205.3ms)
+  Rendered tasks/new.js.erb (244.8ms)
+Completed 200 OK in 325ms (Views: 324.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 10:28:53 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"Take a nap!", "deadline(1i)"=>"2015", "deadline(2i)"=>"5", "deadline(3i)"=>"28", "deadline(4i)"=>"11", "deadline(5i)"=>"30"}, "commit"=>"Create Task"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tasks" ("description", "deadline", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["description", "Take a nap!"], ["deadline", "2015-05-28 15:30:00.000000"], ["created_at", "2015-05-28 14:28:53.462079"], ["updated_at", "2015-05-28 14:28:53.462079"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (1.7ms)
+  Rendered tasks/create.js.erb (26.7ms)
+Completed 200 OK in 94ms (Views: 65.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:35:16 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (1.3ms)
+  Rendered tasks/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 156ms (Views: 154.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-f70e3d0d914c35902d1ab9002de76a3d8af0561b8d4ca03699a8aa0ffe9763f5.css?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-805402b6a299a7d9efcc18f52dfb9cec919c9be63622b24cde36b64ff25b41ca.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/moment.self-14a05e94cca93048a2a57289c5b322ce9bf419e4689a57a7b33fae4066d867e9.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 10:35:16 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:35:17 -0400
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 10:35:25 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (44.2ms)
+  Rendered tasks/_datetimepicker.js (0.5ms)
+  Rendered tasks/new.js.erb (95.1ms)
+Completed 200 OK in 127ms (Views: 126.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for ::1 at 2015-05-28 10:35:32 -0400
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 10:36:23 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"Practice programming!", "deadline"=>"05/30/2015 12:35 PM"}, "button"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("description", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["description", "Practice programming!"], ["created_at", "2015-05-28 14:36:23.283605"], ["updated_at", "2015-05-28 14:36:23.283605"]]
+  [1m[35m (6.1ms)[0m  commit transaction
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (2.4ms)
+  Rendered tasks/create.js.erb (26.7ms)
+Completed 200 OK in 68ms (Views: 56.7ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:48:24 -0400
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (1.9ms)
+  Rendered tasks/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 214ms (Views: 213.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-f70e3d0d914c35902d1ab9002de76a3d8af0561b8d4ca03699a8aa0ffe9763f5.css?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/moment.self-14a05e94cca93048a2a57289c5b322ce9bf419e4689a57a7b33fae4066d867e9.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-805402b6a299a7d9efcc18f52dfb9cec919c9be63622b24cde36b64ff25b41ca.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for ::1 at 2015-05-28 10:48:25 -0400
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 10:49:12 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (1.6ms)
+  Rendered tasks/_datetimepicker.js (0.1ms)
+  Rendered tasks/new.js.erb (53.2ms)
+Completed 200 OK in 85ms (Views: 83.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 10:49:46 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"Get some caffeine", "deadline"=>"05/28/2015 10:49 AM"}, "button"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("description", "created_at", "updated_at") VALUES (?, ?, ?)  [["description", "Get some caffeine"], ["created_at", "2015-05-28 14:49:46.423578"], ["updated_at", "2015-05-28 14:49:46.423578"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (1.7ms)
+  Rendered tasks/create.js.erb (27.8ms)
+Completed 200 OK in 64ms (Views: 58.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:50:19 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (1.7ms)
+  Rendered tasks/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 134ms (Views: 133.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/application.self-f70e3d0d914c35902d1ab9002de76a3d8af0561b8d4ca03699a8aa0ffe9763f5.css?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 10:50:19 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 10:50:20 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 10:50:20 -0400
+
+
+Started GET "/assets/moment.self-14a05e94cca93048a2a57289c5b322ce9bf419e4689a57a7b33fae4066d867e9.js?body=1" for ::1 at 2015-05-28 10:50:20 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-805402b6a299a7d9efcc18f52dfb9cec919c9be63622b24cde36b64ff25b41ca.js?body=1" for ::1 at 2015-05-28 10:50:20 -0400
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2015-05-28 10:50:20 -0400
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for ::1 at 2015-05-28 10:50:20 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 10:58:46 -0400
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (57.0ms)
+  Rendered tasks/index.html.erb within layouts/application (61.3ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+    1: <div class="col-md-12">
+    2:   <div class="well">
+    3:     <h3><%= task.description %></h3>
+    4:     <p><%= task.deadline.strftime('%B %d, %Y') %></p>
+    5:     <p class="pull-right">
+    6:       <%= link_to "Edit", edit_task_path(task), remote: true %>	  
+    7:       <%= link_to "Delete", task, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+  app/views/tasks/_task.html.erb:4:in `_app_views_tasks__task_html_erb__277572113387969545_70112475828240'
+  app/views/tasks/index.html.erb:13:in `_app_views_tasks_index_html_erb___2620364287570099238_70112416709080'
+
+
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.4ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (104.3ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (90.5ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (238.3ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 11:02:53 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (3.0ms)
+  Rendered tasks/index.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 755ms (Views: 728.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/application.self-f70e3d0d914c35902d1ab9002de76a3d8af0561b8d4ca03699a8aa0ffe9763f5.css?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/moment.self-14a05e94cca93048a2a57289c5b322ce9bf419e4689a57a7b33fae4066d867e9.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-805402b6a299a7d9efcc18f52dfb9cec919c9be63622b24cde36b64ff25b41ca.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for ::1 at 2015-05-28 11:02:54 -0400
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 11:03:04 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (35.9ms)
+  Rendered tasks/_datetimepicker.js (0.5ms)
+  Rendered tasks/new.js.erb (113.0ms)
+Completed 200 OK in 206ms (Views: 205.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 11:03:51 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"Take out the garbage!", "deadline"=>"05/28/2015 7:03 PM"}, "button"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tasks" ("description", "created_at", "updated_at") VALUES (?, ?, ?)  [["description", "Take out the garbage!"], ["created_at", "2015-05-28 15:03:51.419931"], ["updated_at", "2015-05-28 15:03:51.419931"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.3ms)
+  Rendered tasks/create.js.erb (28.4ms)
+Completed 200 OK in 107ms (Views: 78.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 11:06:50 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (21.3ms)
+  Rendered tasks/index.html.erb within layouts/application (25.1ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+    1: <div class="col-md-12">
+    2:   <div class="well">
+    3:     <h3><%= task.description %></h3>
+    4:     <p><%= task.deadline.strftime('%B %d, %Y') %></p>
+    5:     <p class="pull-right">
+    6:       <%= link_to "Edit", edit_task_path(task), remote: true %>	  
+    7:       <%= link_to "Delete", task, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+  app/views/tasks/_task.html.erb:4:in `_app_views_tasks__task_html_erb___3049703786029584513_70194941810160'
+  app/views/tasks/index.html.erb:13:in `_app_views_tasks_index_html_erb___3127709322432757877_70194902308180'
+
+
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.2ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (114.5ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (69.0ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/rudi1/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (203.2ms)
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 11:08:54 -0400
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.1ms)
+  Rendered tasks/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 141ms (Views: 140.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-f70e3d0d914c35902d1ab9002de76a3d8af0561b8d4ca03699a8aa0ffe9763f5.css?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/moment.self-14a05e94cca93048a2a57289c5b322ce9bf419e4689a57a7b33fae4066d867e9.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-805402b6a299a7d9efcc18f52dfb9cec919c9be63622b24cde36b64ff25b41ca.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for ::1 at 2015-05-28 11:08:54 -0400
+
+
+Started GET "/tasks" for ::1 at 2015-05-28 11:16:00 -0400
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (2.1ms)
+  Rendered tasks/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 2260ms (Views: 2258.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-e2bee3bc233b9c31d71d2908133e4163020d66d5185cbee4a18b0692844f60da.css?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/moment.self-14a05e94cca93048a2a57289c5b322ce9bf419e4689a57a7b33fae4066d867e9.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-805402b6a299a7d9efcc18f52dfb9cec919c9be63622b24cde36b64ff25b41ca.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for ::1 at 2015-05-28 11:16:03 -0400
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 11:17:34 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (1.0ms)
+  Rendered tasks/_datetimepicker.js (0.1ms)
+  Rendered tasks/new.js.erb (53.7ms)
+Completed 200 OK in 87ms (Views: 86.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 11:18:28 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"Get vendors for wine and beer tasting.", "deadline"=>"06/30/2015 12:18 PM"}, "button"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tasks" ("description", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["description", "Get vendors for wine and beer tasting."], ["created_at", "2015-05-28 15:18:28.621247"], ["updated_at", "2015-05-28 15:18:28.621247"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (2.8ms)
+  Rendered tasks/create.js.erb (26.7ms)
+Completed 200 OK in 62ms (Views: 56.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 11:24:12 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (1.0ms)
+  Rendered tasks/_datetimepicker.js (0.2ms)
+  Rendered tasks/new.js.erb (48.1ms)
+Completed 200 OK in 80ms (Views: 79.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 11:24:31 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"new task", "deadline"=>"05/28/2015 12:22 AM"}, "button"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tasks" ("description", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["description", "new task"], ["created_at", "2015-05-28 15:24:31.305837"], ["updated_at", "2015-05-28 15:24:31.305837"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (2.2ms)
+  Rendered tasks/create.js.erb (25.4ms)
+Completed 200 OK in 60ms (Views: 54.7ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/tasks/8" for ::1 at 2015-05-28 11:24:37 -0400
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"8"}
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 8]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.2ms)
+  Rendered tasks/destroy.js.erb (26.6ms)
+Completed 200 OK in 195ms (Views: 80.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 11:24:45 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (0.8ms)
+  Rendered tasks/_datetimepicker.js (0.1ms)
+  Rendered tasks/new.js.erb (49.9ms)
+Completed 200 OK in 80ms (Views: 79.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 11:25:01 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"new task", "deadline"=>"06/02/2015 12:25 AM"}, "button"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tasks" ("description", "deadline", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["description", "new task"], ["deadline", "2015-02-06 05:25:00.000000"], ["created_at", "2015-05-28 15:25:01.674860"], ["updated_at", "2015-05-28 15:25:01.674860"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.4ms)
+  Rendered tasks/create.js.erb (27.9ms)
+Completed 200 OK in 62ms (Views: 57.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tasks/new" for ::1 at 2015-05-28 11:34:47 -0400
+Processing by TasksController#new as JS
+  Rendered tasks/_form.html.erb (1.3ms)
+  Rendered tasks/_datetimepicker.js (0.0ms)
+  Rendered tasks/new.js.erb (48.3ms)
+Completed 200 OK in 79ms (Views: 78.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2015-05-28 11:35:59 -0400
+Processing by TasksController#create as JS
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"I hope my date and time works!!!", "deadline"=>"06/11/2015 10:59 PM"}, "button"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("description", "deadline", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["description", "I hope my date and time works!!!"], ["deadline", "2015-11-07 03:59:00.000000"], ["created_at", "2015-05-28 15:35:59.058493"], ["updated_at", "2015-05-28 15:35:59.058493"]]
+  [1m[36m (5.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.6ms)
+  Rendered tasks/create.js.erb (25.9ms)
+Completed 200 OK in 64ms (Views: 54.4ms | ActiveRecord: 6.2ms)
+
+
+Started DELETE "/tasks/4" for ::1 at 2015-05-28 11:36:09 -0400
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (3.6ms)
+  Rendered tasks/destroy.js.erb (27.6ms)
+Completed 200 OK in 74ms (Views: 70.6ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/tasks/5" for ::1 at 2015-05-28 11:36:11 -0400
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"5"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 5]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (2.7ms)
+  Rendered tasks/destroy.js.erb (29.1ms)
+Completed 200 OK in 68ms (Views: 63.7ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/tasks/6" for ::1 at 2015-05-28 11:36:14 -0400
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"6"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 6]]
+  [1m[35m (5.5ms)[0m  commit transaction
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/_task.html.erb (2.0ms)
+  Rendered tasks/destroy.js.erb (26.5ms)
+Completed 200 OK in 69ms (Views: 61.2ms | ActiveRecord: 6.4ms)
+
+
+Started DELETE "/tasks/7" for ::1 at 2015-05-28 11:36:17 -0400
+Processing by TasksController#destroy as JS
+  Parameters: {"id"=>"7"}
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 7]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/_task.html.erb (1.6ms)
+  Rendered tasks/destroy.js.erb (27.8ms)
+Completed 200 OK in 65ms (Views: 60.6ms | ActiveRecord: 2.4ms)
